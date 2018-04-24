@@ -1,21 +1,18 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class IncomeTaxCalculatorTest {
 
-    private IncomeTaxCalculator taxCalculator;
-
-    @org.junit.Before
+    @Before
     public void setUp() {
-
-        //taxCalculator = new IncomeTaxCalculator();
+        IncomeTaxCalculator taxCalculator = new IncomeTaxCalculator();
     }
 
     @Test
-    public void shouldReturnZeroAsThereIsNoTaxPay() {
-        Assert.assertSame(4,2);
-        //assertThat(taxCalculator.calculateTax(5));
+    public void checkSalaris() {
+        IncomeTaxCalculator incomeTaxCalculator = new IncomeTaxCalculator("Rafael", 125000, 2, "January 5, 1994");
+        double salaris = incomeTaxCalculator.berekenInkomen(incomeTaxCalculator.getInkomen(), incomeTaxCalculator.getSchaal(), incomeTaxCalculator.getYear());
+        Assert.assertEquals(51062.5, salaris, 0.05);
     }
 }
